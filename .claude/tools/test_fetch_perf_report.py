@@ -232,10 +232,6 @@ def test_stream_to_file_zstd_cli_times_out():
     import sys as _sys
     import time as _time
 
-    if shutil.which("zstd") is None:
-        print("SKIP: zstd binary not available")
-        return
-
     saved_mod = _sys.modules.get("zstandard", "MISSING")
     saved_path = os.environ["PATH"]
     saved_timeout = fpr._ZSTD_CLI_TIMEOUT_SEC
